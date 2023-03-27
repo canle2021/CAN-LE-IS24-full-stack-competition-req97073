@@ -6,12 +6,10 @@ const morgan = require("morgan");
 // Morgan is an HTTP request level Middleware
 
 // import APIs here
-
-//
-//
+const { getProductsData } = require("./handlers/getProducts");
 // import APIs here
 
-const PORT = 8000;
+const PORT = 3000;
 
 const app = express();
 // .use() will add a middleware to app()
@@ -41,6 +39,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/", express.static(__dirname + "/"));
 // use "/" as direction in the url, dirname as a string
 // RESTFUL endpoints
+app.get(`/api/get-all-products`, getProductsData);
 
 // RESTFUL endpoints
 app.get("*", (req, res) => {
