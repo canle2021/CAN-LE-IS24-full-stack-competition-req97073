@@ -1,0 +1,34 @@
+[
+  {
+    "id": "90d10197-3dde-426a-8249-a5ba31de12be",
+    "firtName": "Lisa",
+    "lastName": "Green",
+    "email": "Lisa@gov.bc.ca",
+    "password": "Lisa@123",
+    "role": "director"
+  },
+  {
+    "id": "4eb84b06-43f5-4a41-8175-b8c95a0b8a29",
+    "firtName": "Alan",
+    "lastName": "Redhat",
+    "email": "Alan@gov.bc.ca",
+    "password": "Alan@123",
+    "role": "devOps"
+  },
+  {
+    "id": "90be30b8-c921-4c90-8152-416bd85a369f",
+    "firtName": "Taylo",
+    "lastName": "Wilton",
+    "email": "Taylo@gov.bc.ca",
+    "password": "Taylo@123",
+    "role": "employee"
+  },
+  {
+    "id": "898729f4-8be5-48ea-9d40-ff3b9fd009bb",
+    "firtName": "Mattie",
+    "lastName": "Hallow",
+    "email": "Mattie@gov.bc.ca",
+    "password": "Mattie@123",
+    "role": "employee"
+  }
+]
