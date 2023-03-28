@@ -1,5 +1,5 @@
 "use strict";
-
+const fs = require("fs");
 const productsData = require("../data/productsData.json");
 /**********************************************************/
 /*   get :  all products
@@ -31,6 +31,7 @@ const getProductsData = async (req, res) => {
   }
   //  to check products array has all empty objects
 
+  console.log("fs", fs);
   return res.status(200).json({
     status: 200,
     message: `You sucessfully retrieve all products' data!`,
