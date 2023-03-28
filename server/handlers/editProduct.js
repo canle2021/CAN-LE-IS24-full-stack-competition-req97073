@@ -62,7 +62,7 @@ const updateProduct = async (req, res) => {
         message: `Sorry. The product with id :${body.productId} does not exist!`,
       });
     }
-    // will return error if can not find the product you want to edit.
+    // will return error message if can not find the product you want to edit.
 
     existingProducts[body.productId] = body;
     // this method will overwrite the productsData.json's old version + add new object.

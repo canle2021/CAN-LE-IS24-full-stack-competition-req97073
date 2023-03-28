@@ -9,6 +9,7 @@ const morgan = require("morgan");
 const { getAllProductsData } = require("./handlers/getProducts");
 const { createProduct } = require("./handlers/createProduct");
 const { updateProduct } = require("./handlers/editProduct");
+const { deleteProduct } = require("./handlers/deleteProduct");
 // import APIs here
 
 const PORT = 3000;
@@ -44,6 +45,7 @@ app.use("/", express.static(__dirname + "/"));
 app.get(`/api/get-all-products`, getAllProductsData);
 app.post(`/api/create-product`, createProduct);
 app.put(`/api/update-product`, updateProduct);
+app.delete(`/api/delete-product/:id`, deleteProduct);
 
 // RESTFUL endpoints
 app.get("*", (req, res) => {
