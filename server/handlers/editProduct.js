@@ -62,6 +62,7 @@ const updateProduct = async (req, res) => {
         message: `Sorry. The product with id :${body.productId} does not exist!`,
       });
     }
+    //  findIndex will return -1 if nothing found.
     // will return error message if can not find the product you want to edit.
 
     existingProducts[body.productId] = body;

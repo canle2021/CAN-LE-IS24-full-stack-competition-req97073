@@ -12,17 +12,18 @@ const deleteProduct = async (req, res) => {
   try {
     let existingProducts = await getProductsData();
     const arrayOfProductsData = Object.values(existingProducts);
-    const findProductWillBeEdited = arrayOfProductsData.findIndex(
+    const findProductWillBeDeleted = arrayOfProductsData.findIndex(
       (product) => product.productId === id
     );
 
-    if (findProductWillBeEdited == -1) {
+    if (findProductWillBeDeleted == -1) {
       return res.status(400).json({
         status: 400,
         data: {},
         message: `Sorry. The product with id :${id} does not exist!`,
       });
     }
+    //  findIndex will return -1 if nothing found.
     // will return error message if can not find the product you want to edit.
 
     delete existingProducts[id];
