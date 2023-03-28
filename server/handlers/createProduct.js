@@ -11,27 +11,29 @@ const createProduct = async (req, res) => {
 
   // supposed the posting method wil have a req.body with this format:
   //{
-  //     "productName": "Agriculture and Food",
-  //     "scrumMaster": "Kaia Propper"
-  //     "productOwner": "Janka Brown",
-  //     "developerNames": ["Pepita Lemmanbie",
-  //                        "Hedvige Tuberfield",
-  //                        "Annecorinne Spurett",
-  //                        "Cacilie Donet",
-  //                        "Edouard Moir""]
-  //     "startDate": "2022/12/23"
-  //     "methodology": "waterfall"
+  // "productName": "Emergency Management",
+  // "productOwnerName": "Mackenzie McPaike",
+  // "developers": [
+  //   "Scottie Eul",
+  //   "Antonin Slewcock",
+  //   "Morry Wait",
+  //   "Salome Birdall",
+  //   "Grenville Hoffner"
+  // ],
+  // "scrumMasterName": "Baudoin Dombrell",
+  // "startDate": "2022/12/21",
+  // "methodology": "agile"
   // }
 
   const newProduct = {
-    _id: uuidv4(),
+    productId: uuidv4(),
     ...body,
   };
   if (
     !body.productName ||
-    !body.scrumMaster ||
-    !body.productOwner ||
-    !body.developerNames ||
+    !body.productOwnerName ||
+    !body.developers ||
+    !body.scrumMasterName ||
     !body.startDate ||
     !body.methodology
   ) {
@@ -42,7 +44,7 @@ const createProduct = async (req, res) => {
     });
   }
 
-  if (body.developerNames.length > 5) {
+  if (body.developers.length > 5) {
     return res.status(400).json({
       status: 400,
       data: {},
@@ -51,19 +53,19 @@ const createProduct = async (req, res) => {
   }
   try {
     let existingProducts = await getProductsData();
-    existingProducts[newProduct._id] = newProduct;
+    existingProducts[newProduct.productId] = newProduct;
     // this method will overwrite the productsData.js's old version + add new object.
     saveProductData(existingProducts);
     return res.status(200).json({
       status: 200,
-      data: newProduct._id,
-      message: ` The product with id: ${newProduct._id} was successfully added`,
+      data: newProduct.productId,
+      message: ` The product with id: ${newProduct.productId} was successfully added`,
     });
   } catch (error) {
     console.log("Add product error:", error);
     return res.status(500).json({
       status: 500,
-      message: ` Sorry, the product with id: ${newProduct._id} was NOT successfully added for some reason`,
+      message: ` Sorry, the new product was NOT successfully added for some reason`,
     });
   }
 };
