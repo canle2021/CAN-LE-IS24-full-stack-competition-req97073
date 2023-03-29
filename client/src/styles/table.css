@@ -1,0 +1,26 @@
+#products {
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-collapse: collapse;
+  }
+  
+  #products tr:nth-child(even){background-color: #f4f1f1;}
+  
+  #products tr:hover {background-color: cadetblue; 
+color: white;}
+
+  #products td, #products th {
+    border: 1.5px solid #ddd;
+    padding: 4px;
+  }
+
+  #products th {
+    text-align: left;
+    background-color:cadetblue;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #products li {
+    padding: 3px;
+  }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
+import "../styles/table.css";
 const Table = () => {
   const [productsData, setProductsData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,7 +41,7 @@ const Table = () => {
       width={50}
     />
   ) : (
-    <table>
+    <table id="products">
       <tbody>
         <tr>
           {columnNamesList.map((head, index) => (
