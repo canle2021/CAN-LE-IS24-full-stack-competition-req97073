@@ -3,6 +3,7 @@ import "../styles/button.css";
 import ReactModal from "react-modal";
 // we use ReactModal dependency
 import { modalStyles } from "../styles/modalStyle";
+import InformationForm from "./form";
 const Button = ({ text, onclick }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -28,6 +29,7 @@ const Button = ({ text, onclick }) => {
         style={modalStyles}
       >
         <h2>Add product</h2>
+        <InformationForm />
       </ReactModal>
     </div>
   );
