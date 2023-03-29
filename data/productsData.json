@@ -58,5 +58,50 @@
     "scrumMasterName": "Alvira Merigot",
     "startDate": "2022/12/22",
     "methodology": "waterfall"
+  },
+  "a4861c63-537d-4f3b-8b6e-9fda0f11b169": {
+    "productId": "a4861c63-537d-4f3b-8b6e-9fda0f11b169",
+    "productName": "BC Teachers' Council",
+    "productOwnerName": "Elsinore Lande",
+    "developers": [
+      "Reuven Presnell",
+      "Cart Chatten",
+      "Herb Molines",
+      "Pepita Lemmanbie",
+      "Hedvige Tuberfield"
+    ],
+    "scrumMasterName": "Beilul Clyma",
+    "startDate": "2023/01/19",
+    "methodology": "agile"
+  },
+  "5c4ca712-bcdd-4389-b395-009caeb4ca0f": {
+    "productId": "5c4ca712-bcdd-4389-b395-009caeb4ca0f",
+    "productName": "Government Communications",
+    "productOwnerName": "Anet Allberry",
+    "developers": [
+      "Brietta Dallan",
+      "Barry Tomaselli",
+      "Cristobal Husk",
+      "Sharlene Hanaby",
+      "Reuven Presnell"
+    ],
+    "scrumMasterName": "Alvira Merigot",
+    "startDate": "2023/01/06",
+    "methodology": "agile"
+  },
+  "8e6e6e6b-7987-485a-b06e-da3cd8ef664a": {
+    "productId": "8e6e6e6b-7987-485a-b06e-da3cd8ef664a",
+    "productName": "Natural and Built Environments",
+    "productOwnerName": "Meggie Jarville",
+    "developers": [
+      "Salome Birdall",
+      "Grenville Hoffner",
+      "Kurt Vogelein",
+      "Herb Molines",
+      "Brietta Dallan"
+    ],
+    "scrumMasterName": "Audi Humphrey",
+    "startDate": "2023/03/06",
+    "methodology": "agile"
   }
 }

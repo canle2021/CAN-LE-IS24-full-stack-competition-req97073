@@ -41,32 +41,35 @@ const Table = () => {
       width={50}
     />
   ) : (
-    <table id="products">
-      <tbody>
-        <tr>
-          {columnNamesList.map((head, index) => (
-            <th key={index}>{head}</th>
-          ))}
-        </tr>
-        {productsData.map((product, index) => (
-          <tr key={index}>
-            <td>{product.productId}</td>
-            <td>{product.productName}</td>
-            <td>{product.scrumMasterName}</td>
-            <td>{product.productOwnerName}</td>
-            <td>
-              <ol>
-                {product.developers.map((developer, index) => (
-                  <li key={index}>{developer}</li>
-                ))}
-              </ol>
-            </td>
-            <td>{product.startDate}</td>
-            <td>{product.methodology}</td>
+    <div>
+      <h3>Total number of products: {productsData.length}</h3>
+      <table id="products">
+        <tbody>
+          <tr>
+            {columnNamesList.map((head, index) => (
+              <th key={index}>{head}</th>
+            ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
+          {productsData.map((product, index) => (
+            <tr key={index}>
+              <td>{product.productId}</td>
+              <td>{product.productName}</td>
+              <td>{product.scrumMasterName}</td>
+              <td>{product.productOwnerName}</td>
+              <td>
+                <ol>
+                  {product.developers.map((developer, index) => (
+                    <li key={index}>{developer}</li>
+                  ))}
+                </ol>
+              </td>
+              <td>{product.startDate}</td>
+              <td>{product.methodology}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
