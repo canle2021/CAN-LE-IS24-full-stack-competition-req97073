@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
+import Button from "./button";
 import "../styles/table.css";
 const Table = () => {
   const [productsData, setProductsData] = useState([]);
@@ -42,7 +43,11 @@ const Table = () => {
     />
   ) : (
     <div>
-      <h3>Total number of products: {productsData.length}</h3>
+      <div id="tableTopLine">
+        <p>Total number of products: {productsData.length}</p>
+        <Button text="Add product"></Button>
+      </div>
+
       <table id="products">
         <tbody>
           <tr>
@@ -51,6 +56,7 @@ const Table = () => {
             ))}
           </tr>
           {productsData.map((product, index) => (
+            // map method will render each product
             <tr key={index}>
               <td>{product.productId}</td>
               <td>{product.productName}</td>
@@ -59,6 +65,7 @@ const Table = () => {
               <td>
                 <ol>
                   {product.developers.map((developer, index) => (
+                    // map method will render each developer's name
                     <li key={index}>{developer}</li>
                   ))}
                 </ol>
