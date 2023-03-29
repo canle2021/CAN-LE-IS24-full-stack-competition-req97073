@@ -12,7 +12,7 @@ const { updateProduct } = require("./handlers/editProduct");
 const { deleteProduct } = require("./handlers/deleteProduct");
 // import APIs here
 
-const PORT = 3000;
+const PORT = 8001;
 
 const app = express();
 // .use() will add a middleware to app()
@@ -56,4 +56,4 @@ app.get("*", (req, res) => {
 });
 // any api called outside this "/" will be a 404 error api
 app.listen(PORT, () => console.info(`LISTENING ON PORT ${PORT}`));
-// make sure this backend is running on the port of 8000.
+// make sure this backend is running on the port.
