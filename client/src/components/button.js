@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/button.css";
 import ReactModal from "react-modal";
+// we use ReactModal dependency
 import { modalStyles } from "../styles/modalStyle";
 const Button = ({ text, onclick }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -18,6 +19,9 @@ const Button = ({ text, onclick }) => {
     <div>
       <button onClick={openModal}>{text}</button>
       <ReactModal
+        //   all the configs of ReactModal dependency
+        ariaHideApp={false}
+        // the appElement should not be hidden
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
