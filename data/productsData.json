@@ -13,27 +13,5 @@
     ],
     "startDate": "2023-01-19",
     "methodology": "agile"
-  },
-  "46ba321f-829b-46c2-9fd3-f43c662b215b": {
-    "productId": "46ba321f-829b-46c2-9fd3-f43c662b215b",
-    "productName": "ds",
-    "scrumMasterName": "sdf",
-    "productOwnerName": "asd asd",
-    "developers": [
-      "11"
-    ],
-    "startDate": "2023-03-23",
-    "methodology": "waterfall"
-  },
-  "c51562a6-ad6e-4365-a799-853b96c9e96d": {
-    "productId": "c51562a6-ad6e-4365-a799-853b96c9e96d",
-    "productName": "sd",
-    "scrumMasterName": "sdf",
-    "productOwnerName": "asd asd",
-    "developers": [
-      "11"
-    ],
-    "startDate": "2023-03-28",
-    "methodology": "waterfall"
   }
 }

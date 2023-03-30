@@ -6,8 +6,7 @@
     height: 7vh;
     display: flex;
     align-items: center;
-    align-content: center;
-    
+    justify-content:space-around;
 }
 .headerTitle{
     font-size: 1.3em;

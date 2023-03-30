@@ -56,7 +56,6 @@ const Table = () => {
         <div>
           <div id="tableTopLine">
             <p>Total number of products: {productsData.length}</p>
-            <Button text="Add product"></Button>
           </div>
 
           <table id="products">
