@@ -84,6 +84,7 @@ const Table = () => {
                   <td>
                     {product.methodology}{" "}
                     <Button buttonName="edit" product={product} />
+                    <Button buttonName="delete" product={product} />
                   </td>
                 </tr>
               ))}
