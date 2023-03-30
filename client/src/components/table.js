@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import ReactLoading from "react-loading";
 import Button from "./button";
 import "../styles/table.css";
+import { AppContext } from "./context/context";
 const Table = () => {
-  const [productsData, setProductsData] = useState([]);
+  // const [productsData, setProductsData] = useState([]);
+  const { productsData, setProductsData } = useContext(AppContext);
   const [loading, setLoading] = useState(true);
   const columnNamesList = [
     "Product Number",
@@ -18,8 +20,10 @@ const Table = () => {
   useEffect(() => {
     fetch(`/api/get-all-products`)
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("fetching products data error");
+        if (res.status !== 200) {
+          throw new Error(
+            `http error code: ${res.status}, message: ${res.statusText}`
+          );
         }
         return res.json();
       })
@@ -27,11 +31,13 @@ const Table = () => {
         setProductsData(data.data || []);
       })
       .catch((err) => {
-        console.log("fetching data error:", err);
+        console.log(err);
       })
       .finally(() => {
         setLoading(false);
       });
+    // I want this useEffect to be used only once when render
+    // eslint-disable-next-line
   }, []);
 
   return loading === true ? (
@@ -43,7 +49,7 @@ const Table = () => {
     />
   ) : (
     <div>
-      {productsData.length == 0 ? (
+      {productsData.length === 0 ? (
         <h2>There is no product to show.</h2>
       ) : (
         // incase no product in list, we should know about that.

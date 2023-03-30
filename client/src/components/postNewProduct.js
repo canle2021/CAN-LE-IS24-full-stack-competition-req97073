@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import { AppContext } from "./context/context";
 import InformationForm from "./form";
 const PostNewProduct = () => {
+  const { fetchDataAgain } = useContext(AppContext);
   const [values, setValues] = useState({});
   let developersArray = [];
   const handleChange = (event) => {
@@ -62,15 +63,19 @@ const PostNewProduct = () => {
           `THANK YOU! You successfully add the new product with id ${converToJson.data}
               `
         );
+        fetchDataAgain();
+        // get products data again
       } else {
         alert(
           `* ADD NEW PRODUCT ERROR ALERT * Sorry! For some reasons, you can not add product ${objectToBePosted.productName} at this time.`
         );
+        throw new Error(
+          `http error code: ${converToJson.status}, message: ${converToJson.message}`
+        );
       }
     } catch (err) {
-      console.log("add new product error", err);
+      console.log(err);
     }
-    console.log("objectToBePosted", objectToBePosted);
   };
 
   return (
