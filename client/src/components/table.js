@@ -3,9 +3,11 @@ import ReactLoading from "react-loading";
 import Button from "./button";
 import "../styles/table.css";
 import { AppContext } from "./context/context";
+import SearchBar from "./searchBar";
 const Table = () => {
   // const [productsData, setProductsData] = useState([]);
-  const { productsData, setProductsData } = useContext(AppContext);
+  const { productsData, setProductsData, startSearch, searchWithScrumMaster } =
+    useContext(AppContext);
   const [loading, setLoading] = useState(true);
   const columnNamesList = [
     "Product Number",
@@ -55,7 +57,14 @@ const Table = () => {
         // incase no product in list, we should know about that.
         <div>
           <div id="tableTopLine">
-            <p>Total number of products: {productsData.length}</p>
+            <p>
+              Total number of products:{" "}
+              {
+                (startSearch === false ? productsData : searchWithScrumMaster)
+                  .length
+              }
+            </p>
+            <SearchBar productsData={productsData} />
           </div>
 
           <table id="products">
@@ -65,7 +74,11 @@ const Table = () => {
                   <th key={index}>{head}</th>
                 ))}
               </tr>
-              {productsData.map((product, index) => (
+              {/* depending on seach scrum master or not, we render list of search found or the whole products list */}
+              {(startSearch === false
+                ? productsData
+                : searchWithScrumMaster
+              ).map((product, index) => (
                 // map method will render each product
                 <tr key={index}>
                   <td>{product.productId}</td>

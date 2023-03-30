@@ -1,10 +1,11 @@
 // this file will help to make our variable to be global,
 // can be used everywhere in our app.
 import React, { useState, createContext } from "react";
-
 export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const [productsData, setProductsData] = useState([]);
+  const [searchWithScrumMaster, setSearchWithScrumMaster] = useState([]);
+  const [startSearch, setStartSearch] = useState(false);
   const fetchDataAgain = () => {
     fetch(`/api/get-all-products`)
       .then((res) => {
@@ -34,6 +35,10 @@ export const AppProvider = ({ children }) => {
         productsData,
         setProductsData,
         fetchDataAgain,
+        searchWithScrumMaster,
+        setSearchWithScrumMaster,
+        startSearch,
+        setStartSearch,
       }}
     >
       {children}

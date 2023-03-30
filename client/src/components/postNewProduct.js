@@ -46,7 +46,6 @@ const PostNewProduct = ({ buttonName }) => {
       startDate: values.startDate,
       methodology: values.methodology,
     };
-    // dont forget to fetch after post
     try {
       const posting = await fetch(`/api/create-product`, {
         method: "POST",
