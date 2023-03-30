@@ -1,6 +1,13 @@
 import React from "react";
 import "../styles/form.css";
-const InformationForm = ({ handleChange, handleSubmit }) => {
+const InformationForm = ({
+  handleChange,
+  handleSubmit,
+  buttonName,
+  product,
+}) => {
+  console.log("product", product);
+  console.log("buttonName", buttonName);
   return (
     <form onSubmit={handleSubmit}>
       <input
@@ -56,8 +63,19 @@ const InformationForm = ({ handleChange, handleSubmit }) => {
         name="developer5"
         onChange={handleChange}
       />
-      <small>Start date:</small>
-      <input type="date" name="startDate" required onChange={handleChange} />
+      {buttonName !== "edit" ? (
+        <div>
+          {" "}
+          <small>Start date:</small>
+          <input
+            type="date"
+            name="startDate"
+            required
+            onChange={handleChange}
+          />
+        </div>
+      ) : null}
+
       <select
         name="methodology"
         required

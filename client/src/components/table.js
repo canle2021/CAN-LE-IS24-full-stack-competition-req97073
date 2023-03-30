@@ -81,7 +81,10 @@ const Table = () => {
                     </ol>
                   </td>
                   <td>{product.startDate}</td>
-                  <td>{product.methodology}</td>
+                  <td>
+                    {product.methodology}{" "}
+                    <Button buttonName="edit" product={product} />
+                  </td>
                 </tr>
               ))}
             </tbody>

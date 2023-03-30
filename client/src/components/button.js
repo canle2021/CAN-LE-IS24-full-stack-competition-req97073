@@ -5,7 +5,7 @@ import ReactModal from "react-modal";
 import { modalStyles } from "../styles/modalStyle";
 import EditProduct from "./editProduct";
 import PostNewProduct from "./postNewProduct";
-const Button = ({ text, onclick }) => {
+const Button = ({ buttonName, product }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -19,7 +19,7 @@ const Button = ({ text, onclick }) => {
 
   return (
     <div>
-      <button onClick={openModal}>{text}</button>
+      <button onClick={openModal}>{buttonName}</button>
       <ReactModal
         //   all the configs of ReactModal dependency
         ariaHideApp={false}
@@ -29,10 +29,14 @@ const Button = ({ text, onclick }) => {
         onRequestClose={closeModal}
         style={modalStyles}
       >
-        {text === "Add product" ? <h2>Add product</h2> : null}
-        {text === "edit" ? <h2>Edit product</h2> : null}
-
-        <PostNewProduct />
+        {buttonName === "Add product" ? <h2>Add product</h2> : null}
+        {buttonName === "edit" ? <h2>Edit product</h2> : null}
+        {buttonName === "Add product" ? (
+          <PostNewProduct buttonName={buttonName} />
+        ) : null}
+        {buttonName === "edit" ? (
+          <EditProduct buttonName={buttonName} product={product} />
+        ) : null}
       </ReactModal>
     </div>
   );
