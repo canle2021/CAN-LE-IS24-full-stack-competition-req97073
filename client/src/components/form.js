@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import "../styles/form.css";
 const InformationForm = ({
   handleChange,
@@ -116,18 +116,10 @@ const InformationForm = ({
         <option value={"*default*"} required>
           Methodology
         </option>
-        <option
-          value="agile"
-          required
-          defaultValue={product !== undefined ? product.methodology : "default"}
-        >
+        <option value="agile" required>
           Agile
         </option>
-        <option
-          value="waterfall"
-          required
-          defaultValue={product !== undefined ? product.methodology : "default"}
-        >
+        <option value="waterfall" required>
           Waterfall
         </option>
       </select>

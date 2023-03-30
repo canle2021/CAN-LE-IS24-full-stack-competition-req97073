@@ -18,15 +18,16 @@ const EditProduct = ({ buttonName, product }) => {
     event.preventDefault();
     // preventDefault to prevent the action of erase everything of the form and get empty objectToBePosted
     if (
-      values.methodology === "*default*" ||
-      values.methodology === undefined
+      (values.methodology === "*default*" ||
+        values.methodology === undefined) &&
+      product.methodology === undefined
+      // product.methodology === undefined means there was no methodology in old version
     ) {
       window.alert("Please provide the methodology!");
       return;
     }
     // we dont want *default* value is acceptable in methodology
     for (let i = 1; i < 6; i++) {
-      console.log("product.developers[i]", product.developers[i - 1]);
       if (
         values[`developer${i}`] !== "" &&
         values[`developer${i}`] !== undefined
@@ -49,6 +50,7 @@ const EditProduct = ({ buttonName, product }) => {
     // onchange only triggers when something changes in input otherwise the value will be undefine.
     // I want the users don't have to re-input the whole text, but they can submit/keep the old input value if they want.
     let objectToBePosted = {
+      productId: product.productId,
       productName:
         values.productName === undefined
           ? product.productName
@@ -62,10 +64,13 @@ const EditProduct = ({ buttonName, product }) => {
           ? product.productOwnerName
           : values.productOwnerName,
       developers: developersArray,
-      methodology: values.methodology,
+      startDate: product.startDate,
+      methodology:
+        values.methodology === undefined
+          ? product.methodology
+          : values.methodology,
     };
 
-    console.log("objectToBePosted", objectToBePosted);
     try {
       const posting = await fetch(`/api/update-product`, {
         method: "PUT",
@@ -79,14 +84,14 @@ const EditProduct = ({ buttonName, product }) => {
 
       if (converToJson.status === 200) {
         alert(
-          `THANK YOU! You successfully add the edit product with id ${converToJson.data}
+          `THANK YOU! You successfully edit the product with id ${converToJson.data}
               `
         );
         fetchDataAgain();
         // get products data again
       } else {
         alert(
-          `* ADD NEW PRODUCT ERROR ALERT * Sorry! For some reasons, you can not edit the product ${objectToBePosted.productName} at this time.`
+          `* EDIT PRODUCT ERROR ALERT * Sorry! For some reasons, you can not edit the product ${objectToBePosted.productName} at this time.`
         );
         throw new Error(
           `http error code: ${converToJson.status}, message: ${converToJson.message}`

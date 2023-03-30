@@ -21,6 +21,7 @@ const updateProduct = async (req, res) => {
   //   "Grenville Hoffner"
   // ],
   // "scrumMasterName": "Baudoin Dombrell",
+  // "startDate": "2023-01-19",
   // "methodology": "agile"
   // }
 
