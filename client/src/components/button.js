@@ -3,7 +3,7 @@ import "../styles/button.css";
 import ReactModal from "react-modal";
 // we use ReactModal dependency
 import { modalStyles } from "../styles/modalStyle";
-import InformationForm from "./form";
+import EditProduct from "./editProduct";
 import PostNewProduct from "./postNewProduct";
 const Button = ({ text, onclick }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -29,7 +29,9 @@ const Button = ({ text, onclick }) => {
         onRequestClose={closeModal}
         style={modalStyles}
       >
-        <h2>Add product</h2>
+        {text === "Add product" ? <h2>Add product</h2> : null}
+        {text === "edit" ? <h2>Edit product</h2> : null}
+
         <PostNewProduct />
       </ReactModal>
     </div>
