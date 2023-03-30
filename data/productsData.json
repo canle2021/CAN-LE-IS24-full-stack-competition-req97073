@@ -1,67 +1,8 @@
 {
-  "072aff52-9be3-4e94-a18b-7f25abe09ef2": {
-    "productId": "072aff52-9be3-4e94-a18b-7f25abe09ef2",
-    "productName": "Attorney General",
-    "productOwnerName": "Anet Allberry",
-    "developers": [
-      "Pepita Lemmanbie",
-      "Hedvige Tuberfield",
-      "Annecorinne Spurett",
-      "Cacilie Donet",
-      "Edouard Moir"
-    ],
-    "scrumMasterName": "Truman Ruddiforth",
-    "startDate": "2022/12/30",
-    "methodology": "agile"
-  },
-  "ef79974e-4bbd-4ee4-a161-07d0da18e924": {
-    "productId": "ef79974e-4bbd-4ee4-a161-07d0da18e924",
-    "productName": "Agriculture and Food",
-    "productOwnerName": "Janka Brown",
-    "developers": [
-      "Pepita Lemmanbie",
-      "Hedvige Tuberfield",
-      "Annecorinne Spurett",
-      "Cacilie Donet",
-      "Edouard Moir"
-    ],
-    "scrumMasterName": "Kaia Propper",
-    "startDate": "2022/12/23",
-    "methodology": "waterfall"
-  },
-  "3c98695d-2e3f-4d77-b343-3688d1fcaf33": {
-    "productId": "3c98695d-2e3f-4d77-b343-3688d1fcaf33",
-    "productName": "Family Development",
-    "productOwnerName": "Mackenzie McPaike",
-    "developers": [
-      "Scottie Eul",
-      "Antonin Slewcock",
-      "Morry Wait",
-      "Salome Birdall",
-      "Grenville Hoffner"
-    ],
-    "scrumMasterName": "Truman Ruddiforth",
-    "startDate": "2023/02/19",
-    "methodology": "agile"
-  },
-  "6c8e8df3-e16c-43dc-9954-4ef786c63b1f": {
-    "productId": "6c8e8df3-e16c-43dc-9954-4ef786c63b1f",
-    "productName": "Education",
-    "productOwnerName": "Mackenzie McPaike",
-    "developers": [
-      "Reuven Presnell",
-      "Cart Chatten",
-      "Herb Molines",
-      "Hedvige Tuberfield",
-      "Annecorinne Spurett"
-    ],
-    "scrumMasterName": "Alvira Merigot",
-    "startDate": "2022/12/22",
-    "methodology": "waterfall"
-  },
-  "a4861c63-537d-4f3b-8b6e-9fda0f11b169": {
-    "productId": "a4861c63-537d-4f3b-8b6e-9fda0f11b169",
+  "08af6395-a8ee-49dd-b75d-fe447953f1a6": {
+    "productId": "08af6395-a8ee-49dd-b75d-fe447953f1a6",
     "productName": "BC Teachers' Council",
+    "scrumMasterName": "Beilul Clyma",
     "productOwnerName": "Elsinore Lande",
     "developers": [
       "Reuven Presnell",
@@ -70,38 +11,7 @@
       "Pepita Lemmanbie",
       "Hedvige Tuberfield"
     ],
-    "scrumMasterName": "Beilul Clyma",
-    "startDate": "2023/01/19",
-    "methodology": "agile"
-  },
-  "5c4ca712-bcdd-4389-b395-009caeb4ca0f": {
-    "productId": "5c4ca712-bcdd-4389-b395-009caeb4ca0f",
-    "productName": "Government Communications",
-    "productOwnerName": "Anet Allberry",
-    "developers": [
-      "Brietta Dallan",
-      "Barry Tomaselli",
-      "Cristobal Husk",
-      "Sharlene Hanaby",
-      "Reuven Presnell"
-    ],
-    "scrumMasterName": "Alvira Merigot",
-    "startDate": "2023/01/06",
-    "methodology": "agile"
-  },
-  "8e6e6e6b-7987-485a-b06e-da3cd8ef664a": {
-    "productId": "8e6e6e6b-7987-485a-b06e-da3cd8ef664a",
-    "productName": "Natural and Built Environments",
-    "productOwnerName": "Meggie Jarville",
-    "developers": [
-      "Salome Birdall",
-      "Grenville Hoffner",
-      "Kurt Vogelein",
-      "Herb Molines",
-      "Brietta Dallan"
-    ],
-    "scrumMasterName": "Audi Humphrey",
-    "startDate": "2023/03/06",
+    "startDate": "2023-01-19",
     "methodology": "agile"
   }
 }

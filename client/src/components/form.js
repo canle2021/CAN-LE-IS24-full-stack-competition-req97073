@@ -28,32 +28,32 @@ const InformationForm = ({ handleChange, handleSubmit }) => {
       <input
         placeholder="Developer 1"
         type="text"
-        name="developers"
+        name="developer1"
         required
         onChange={handleChange}
       />
       <input
         placeholder="Developer 2"
         type="text"
-        name="developers"
+        name="developer2"
         onChange={handleChange}
       />
       <input
         placeholder="Developer 3"
         type="text"
-        name="developers"
+        name="developer3"
         onChange={handleChange}
       />
       <input
         placeholder="Developer 4"
         type="text"
-        name="developers"
+        name="developer4"
         onChange={handleChange}
       />
       <input
         placeholder="Developer 5"
         type="text"
-        name="developers"
+        name="developer5"
         onChange={handleChange}
       />
       <small>Start date:</small>
@@ -78,7 +78,7 @@ const InformationForm = ({ handleChange, handleSubmit }) => {
       <input
         id="submitButton"
         type="submit"
-        value="Submit"
+        value="Save"
         name="confirmButton"
       ></input>
     </form>
