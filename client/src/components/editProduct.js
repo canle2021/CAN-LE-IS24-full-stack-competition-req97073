@@ -41,8 +41,8 @@ const EditProduct = ({ buttonName, product }) => {
         developersArray.push(product.developers[i - 1]);
       }
     }
-    // take all the developer names
-    // if any you dont want to change developer's name, it's still in the submitted data
+    // take all the developer names and push to the array
+    // if  you dont want to change any developer's name, it's still in the submitted data
     if (developersArray.length > 5) {
       window.alert("The developer number should not be >5.");
       return;

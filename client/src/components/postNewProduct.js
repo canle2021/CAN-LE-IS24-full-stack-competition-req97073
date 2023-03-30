@@ -33,7 +33,7 @@ const PostNewProduct = ({ buttonName }) => {
         developersArray.push(values[`developer${i}`]);
       }
     }
-    // take all the developer names
+    // take all the developer names and push to the array
     if (developersArray.length > 5) {
       window.alert("The developer number should not be >5.");
       return;
