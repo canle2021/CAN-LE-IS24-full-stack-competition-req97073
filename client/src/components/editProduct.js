@@ -26,26 +26,46 @@ const EditProduct = ({ buttonName, product }) => {
     }
     // we dont want *default* value is acceptable in methodology
     for (let i = 1; i < 6; i++) {
+      console.log("product.developers[i]", product.developers[i - 1]);
       if (
         values[`developer${i}`] !== "" &&
         values[`developer${i}`] !== undefined
       ) {
         developersArray.push(values[`developer${i}`]);
       }
+      if (
+        values[`developer${i}`] === undefined &&
+        product.developers[i - 1] !== undefined
+      ) {
+        developersArray.push(product.developers[i - 1]);
+      }
     }
     // take all the developer names
+    // if any you dont want to change developer's name, it's still in the submitted data
     if (developersArray.length > 5) {
       window.alert("The developer number should not be >5.");
       return;
     }
+    // onchange only triggers when something changes in input otherwise the value will be undefine.
+    // I want the users don't have to re-input the whole text, but they can submit/keep the old input value if they want.
     let objectToBePosted = {
-      productName: values.productName,
-      scrumMasterName: values.scrumMasterName,
-      productOwnerName: values.productOwnerName,
+      productName:
+        values.productName === undefined
+          ? product.productName
+          : values.productName,
+      scrumMasterName:
+        values.scrumMasterName === undefined
+          ? product.scrumMasterName
+          : values.scrumMasterName,
+      productOwnerName:
+        values.productOwnerName === undefined
+          ? product.productOwnerName
+          : values.productOwnerName,
       developers: developersArray,
       methodology: values.methodology,
     };
-    // dont forget to fetch after post
+
+    console.log("objectToBePosted", objectToBePosted);
     try {
       const posting = await fetch(`/api/update-product`, {
         method: "PUT",

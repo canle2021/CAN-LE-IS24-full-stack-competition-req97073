@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "./context/context";
 import InformationForm from "./form";
-const PostNewProduct = () => {
+const PostNewProduct = ({ buttonName }) => {
   const { fetchDataAgain } = useContext(AppContext);
   const [values, setValues] = useState({});
   let developersArray = [];
@@ -79,7 +79,11 @@ const PostNewProduct = () => {
   };
 
   return (
-    <InformationForm handleChange={handleChange} handleSubmit={handleSubmit} />
+    <InformationForm
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      buttonName={buttonName}
+    />
     // pass this props to the InformationForm component
   );
 };

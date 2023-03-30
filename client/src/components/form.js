@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import "../styles/form.css";
 const InformationForm = ({
   handleChange,
@@ -6,8 +6,6 @@ const InformationForm = ({
   buttonName,
   product,
 }) => {
-  console.log("product", product);
-  console.log("buttonName", buttonName);
   return (
     <form onSubmit={handleSubmit}>
       <input
@@ -15,7 +13,12 @@ const InformationForm = ({
         type="text"
         name="productName"
         required
+        defaultValue={product !== undefined ? product.productName : undefined}
         onChange={handleChange}
+
+        // incase of edit, this value will be showed in the input as a default value
+        // it's very confinient for the users who don't want to re-fill everything when do editting
+        // the same with other inputs below.
       />
       <input
         placeholder="Scrum Master Name (required)"
@@ -23,6 +26,10 @@ const InformationForm = ({
         name="scrumMasterName"
         required
         onChange={handleChange}
+        defaultValue={
+          product !== undefined ? product.scrumMasterName : undefined
+        }
+        // defaultValue renders the input value of the old-version data of product before editting
       />
       <input
         placeholder="Product Owner Name (required)"
@@ -30,6 +37,9 @@ const InformationForm = ({
         name="productOwnerName"
         required
         onChange={handleChange}
+        defaultValue={
+          product !== undefined ? product.productOwnerName : undefined
+        }
       />
       <small>Developers list. Developer 1 must be filled:</small>
       <input
@@ -38,30 +48,51 @@ const InformationForm = ({
         name="developer1"
         required
         onChange={handleChange}
+        defaultValue={product !== undefined ? product.developers[0] : undefined}
       />
       <input
         placeholder="Developer 2"
         type="text"
         name="developer2"
         onChange={handleChange}
+        defaultValue={
+          product !== undefined && product.developers[1]
+            ? product.developers[1]
+            : undefined
+        }
       />
       <input
         placeholder="Developer 3"
         type="text"
         name="developer3"
         onChange={handleChange}
+        defaultValue={
+          product !== undefined && product.developers[3]
+            ? product.developers[2]
+            : undefined
+        }
       />
       <input
         placeholder="Developer 4"
         type="text"
         name="developer4"
         onChange={handleChange}
+        defaultValue={
+          product !== undefined && product.developers[3]
+            ? product.developers[3]
+            : undefined
+        }
       />
       <input
         placeholder="Developer 5"
         type="text"
         name="developer5"
         onChange={handleChange}
+        defaultValue={
+          product !== undefined && product.developers[4]
+            ? product.developers[4]
+            : undefined
+        }
       />
       {buttonName !== "edit" ? (
         <div>
@@ -80,15 +111,23 @@ const InformationForm = ({
         name="methodology"
         required
         onChange={handleChange}
-        defaultValue={"default"}
+        defaultValue={product !== undefined ? product.methodology : "default"}
       >
         <option value={"*default*"} required>
           Methodology
         </option>
-        <option value="agile" required>
+        <option
+          value="agile"
+          required
+          defaultValue={product !== undefined ? product.methodology : "default"}
+        >
           Agile
         </option>
-        <option value="waterfall" required>
+        <option
+          value="waterfall"
+          required
+          defaultValue={product !== undefined ? product.methodology : "default"}
+        >
           Waterfall
         </option>
       </select>
