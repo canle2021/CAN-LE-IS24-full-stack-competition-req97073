@@ -18,7 +18,7 @@ So, all the APIs will be http://localhost:8001/api/
 1. Evething is in the main branch on GitHub.
 2. I used nodeJS for backend, ReactJS for frontend, json file for data in the folder "data"
 3. I used nodeJS: v19.2.0
-4. Im used yarn version 1.22.19 to add dependencies
+4. I used yarn version 1.22.19 to add dependencies
 5. I used Macbook pro M1 to create this project.
 6. I used Google Chome to renders front end and Insomnia to for backend testing
 7. Role of main folders: client: front end, server: back end, data: data storage, instructions: all instructions.
