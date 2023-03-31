@@ -1,0 +1,15 @@
+.main{
+   
+    background-color: black;
+    text-align: center;
+    color: white;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+.headerTitle{
+    font-size: 1.3em;
+    margin-left: 2%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
