@@ -6,6 +6,7 @@ export const AppProvider = ({ children }) => {
   const [productsData, setProductsData] = useState([]);
   const [searchResultArray, setSearchResultArray] = useState([]);
   const [startSearch, setStartSearch] = useState(false);
+  const [searchValues, setSearchValues] = useState({});
   const fetchDataAgain = () => {
     fetch(`/api/get-all-products`)
       .then((res) => {
@@ -29,6 +30,41 @@ export const AppProvider = ({ children }) => {
       });
   };
   //   fetchDataAgain() will be called when click Save button
+
+  const fetchSearchDataAgain = async () => {
+    try {
+      let apiAddress = "";
+      if (searchValues.searchBy === "scrumMaster") {
+        apiAddress = `/api/search-scrum-master`;
+      } else if (searchValues.searchBy === "developer") {
+        apiAddress = `/api/search-developer`;
+      }
+      const posting = await fetch(apiAddress, {
+        method: "POST",
+        body: JSON.stringify(searchValues),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+
+      const converToJson = await posting.json();
+      console.log("converToJson", converToJson);
+      if (converToJson.status === 200) {
+        setSearchResultArray(converToJson.data);
+        // assign found products list with the result array
+      } else {
+        setSearchResultArray([]);
+        // search result shoud be empty if nothing matches
+
+        throw new Error(
+          `http error code: ${converToJson.status}, message: ${converToJson.message}`
+        );
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <AppContext.Provider
       value={{
@@ -39,6 +75,9 @@ export const AppProvider = ({ children }) => {
         setSearchResultArray,
         startSearch,
         setStartSearch,
+        searchValues,
+        setSearchValues,
+        fetchSearchDataAgain,
       }}
     >
       {children}

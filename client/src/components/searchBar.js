@@ -3,7 +3,12 @@ import "../styles/searchBar.css";
 import { AppContext } from "./context/context";
 const SearchBar = () => {
   const [values, setValues] = useState({});
-  const { setSearchResultArray, setStartSearch } = useContext(AppContext);
+  const {
+    setSearchResultArray,
+    setStartSearch,
+    setSearchValues,
+    fetchDataAgain,
+  } = useContext(AppContext);
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value.trim();
@@ -19,15 +24,16 @@ const SearchBar = () => {
     // an empty objectToBePosted
     setStartSearch(true);
     const objectToBePosted = { ...values };
+    setSearchValues(objectToBePosted);
     // copy values to objectToBePosted
     try {
-      let apiAdress = "";
+      let apiAddress = "";
       if (values.searchBy === "scrumMaster") {
-        apiAdress = `/api/search-scrum-master`;
+        apiAddress = `/api/search-scrum-master`;
       } else if (values.searchBy === "developer") {
-        apiAdress = `/api/search-developer`;
+        apiAddress = `/api/search-developer`;
       }
-      const posting = await fetch(apiAdress, {
+      const posting = await fetch(apiAddress, {
         method: "POST",
         body: JSON.stringify(objectToBePosted),
         headers: {
@@ -52,15 +58,24 @@ const SearchBar = () => {
       console.log(err);
     }
     setValues({});
+    setValues({ values, searchBy: "" });
     // reset values after submittion
   };
   const endSearchHandler = () => {
     setStartSearch(false);
     setValues({});
+    setValues({ values, searchBy: "" });
+    fetchDataAgain();
+    // to reset everything when click clear search.
   };
   return (
     <div>
-      <select name="searchBy" required onChange={handleChange}>
+      <select
+        name="searchBy"
+        required
+        onChange={handleChange}
+        value={values.searchBy}
+      >
         <option value={"*default*"} required>
           Search by:
         </option>
@@ -97,9 +112,9 @@ const SearchBar = () => {
             value="Search"
             name="confirmButton"
           ></input>
-          <button onClick={endSearchHandler}>End search!</button>
         </div>
       </form>
+      <button onClick={endSearchHandler}>Clear search</button>
     </div>
   );
 };

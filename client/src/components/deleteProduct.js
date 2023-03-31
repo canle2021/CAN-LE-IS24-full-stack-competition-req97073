@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import "../styles/deleteModal.css";
 import { AppContext } from "./context/context";
 const DeleteProduct = ({ product, closeModal }) => {
-  const { fetchDataAgain } = useContext(AppContext);
+  const { fetchDataAgain, fetchSearchDataAgain, startSearch } =
+    useContext(AppContext);
   const handleDelete = async () => {
     try {
       const posting = await fetch(`/api/delete-product/${product.productId}`, {
@@ -22,6 +23,8 @@ const DeleteProduct = ({ product, closeModal }) => {
         );
         fetchDataAgain();
         // get products data again
+        fetchSearchDataAgain();
+        // incase you want to delete product while searching
       } else {
         alert(
           `* DELETE PRODUCT ERROR ALERT * Sorry! For some reasons, you can not delete the product ${product.productName} at this time.`
