@@ -5,7 +5,7 @@ Thank you very much for your time to review my assigment.
 You also can see it on this address: https://github.com/canle2021/CAN-LE-IS24-full-stack-competition-req97073
 
 For saving your time, this is the video demo: https://youtu.be/BVokuWvAyoc
-At the limited time, I just put this video for now. I will fix it late.
+At the limited time, I just put this video for now. I will fix it later.
 
 ## Note:
 
