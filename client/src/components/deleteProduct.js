@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import "../styles/deleteModal.css";
 import { AppContext } from "./context/context";
 const DeleteProduct = ({ product, closeModal }) => {
   const { fetchDataAgain } = useContext(AppContext);
@@ -36,7 +37,7 @@ const DeleteProduct = ({ product, closeModal }) => {
   };
 
   return (
-    <div>
+    <div id="main">
       <h3>Are you going to delete the product with id: {product.productId}?</h3>
       <div>
         <button onClick={handleDelete}>yes</button>
