@@ -58,11 +58,13 @@ const Table = () => {
         <div>
           <div id="tableTopLine">
             <p>
-              Total number of products:{" "}
+              Total number of products
+              {startSearch === false ? ": " : " of searching: "}
               {
                 (startSearch === false ? productsData : searchResultArray)
                   .length
               }
+              {/* render products number of searching or total number*/}
             </p>
             <SearchBar productsData={productsData} />
           </div>

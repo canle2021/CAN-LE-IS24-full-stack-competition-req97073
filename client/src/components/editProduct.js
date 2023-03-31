@@ -37,6 +37,7 @@ const EditProduct = ({ buttonName, product }) => {
       if (
         values[`developer${i}`] === undefined &&
         product.developers[i - 1] !== undefined
+        // because i is from 1, so index on developers will start at 0
       ) {
         developersArray.push(product.developers[i - 1]);
       }

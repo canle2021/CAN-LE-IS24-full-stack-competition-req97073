@@ -7,7 +7,6 @@ const { getProductsData } = require("../helpers/helpers.js");
 
 const scrumMasterNameSearch = async (req, res) => {
   const body = req.body;
-  console.log("body", body);
   // supposed the posting method wil have a req.body with this format:
   //{
   // "scrumMasterName": "AAA"

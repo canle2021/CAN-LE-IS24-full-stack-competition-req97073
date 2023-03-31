@@ -53,6 +53,9 @@ const InformationForm = ({
             ? product.developers[0]
             : undefined
         }
+        // if current product data is available, it will be the defaul data for editting.
+        // product data is available but number of developer names will vary from 1 to 5
+        // so we have to check each of them is avaible or not.
       />
       <input
         placeholder="Developer 2"
