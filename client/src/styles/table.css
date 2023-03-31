@@ -31,6 +31,14 @@ transition: 0.5s ease-in-out;}
     font-size: 1.5em;
     margin: 0.1%;
     align-items: center;
-   
-    
+}
+  #products div{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+}
+#products button{
+margin-top: 10px;
 }

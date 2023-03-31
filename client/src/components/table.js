@@ -81,7 +81,13 @@ const Table = () => {
                 (product, index) => (
                   // map method will render each product
                   <tr key={index}>
-                    <td>{product.productId}</td>
+                    <td>
+                      {product.productId}
+                      <div>
+                        <Button buttonName="edit" product={product} />
+                        <Button buttonName="delete" product={product} />
+                      </div>
+                    </td>
                     <td>{product.productName}</td>
                     <td>{product.scrumMasterName}</td>
                     <td>{product.productOwnerName}</td>
@@ -94,11 +100,7 @@ const Table = () => {
                       </ol>
                     </td>
                     <td>{product.startDate}</td>
-                    <td>
-                      {product.methodology}{" "}
-                      <Button buttonName="edit" product={product} />
-                      <Button buttonName="delete" product={product} />
-                    </td>
+                    <td>{product.methodology}</td>
                   </tr>
                 )
               )}

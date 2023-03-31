@@ -6,7 +6,7 @@ button{
     border-radius: 20px;
     border: none;   
     height:30px;
-    width: 100%;
+    width: 140px
 }
 button:hover {
     background-color: rgb(232, 191, 12);
