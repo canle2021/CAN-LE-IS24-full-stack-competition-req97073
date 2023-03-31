@@ -1,10 +1,9 @@
 import React, { useState, useContext } from "react";
 import "../styles/form.css";
 import { AppContext } from "./context/context";
-const SearchBar = ({ productsData }) => {
+const SearchBar = () => {
   const [values, setValues] = useState({});
-  const { searchWithScrumMaster, setSearchWithScrumMaster, setStartSearch } =
-    useContext(AppContext);
+  const { setSearchResultArray, setStartSearch } = useContext(AppContext);
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value.trim();
@@ -20,8 +19,15 @@ const SearchBar = ({ productsData }) => {
     // an empty objectToBePosted
     setStartSearch(true);
     const objectToBePosted = { ...values };
+    // copy values to objectToBePosted
     try {
-      const posting = await fetch(`/api/search-scrum-master`, {
+      let apiAdress = "";
+      if (values.searchBy === "scrumMaster") {
+        apiAdress = `/api/search-scrum-master`;
+      } else if (values.searchBy === "developer") {
+        apiAdress = `/api/search-developer`;
+      }
+      const posting = await fetch(apiAdress, {
         method: "POST",
         body: JSON.stringify(objectToBePosted),
         headers: {
@@ -32,10 +38,10 @@ const SearchBar = ({ productsData }) => {
       const converToJson = await posting.json();
 
       if (converToJson.status === 200) {
-        setSearchWithScrumMaster(converToJson.data);
+        setSearchResultArray(converToJson.data);
         // assign found products list with the result array
       } else {
-        setSearchWithScrumMaster([]);
+        setSearchResultArray([]);
         // search result shoud be empty if nothing matches
 
         throw new Error(
@@ -45,17 +51,41 @@ const SearchBar = ({ productsData }) => {
     } catch (err) {
       console.log(err);
     }
+    setValues({});
+    // reset values after submittion
   };
   const endSearchHandler = () => {
     setStartSearch(false);
   };
   return (
     <div>
+      <select name="searchBy" required onChange={handleChange}>
+        <option value={"*default*"} required>
+          Search by:
+        </option>
+        <option value="scrumMaster" required>
+          Scrum master
+        </option>
+        <option value="developer" required>
+          Developer
+        </option>
+      </select>
       <form onSubmit={handleSubmit}>
         <input
-          placeholder="Scrum Master Name"
+          placeholder="Please choose search by first"
           type="text"
-          name="scrumMasterName"
+          name={`${values.searchBy === "scrumMaster" ? "scrumMasterName" : ""}${
+            values.searchBy === "developer" ? "developerName" : ""
+          }`}
+          // depending on each search catagory, we transform name to get key words.
+          value={`${
+            values.searchBy === "scrumMaster"
+              ? values.scrumMasterName || ""
+              : ""
+          }${
+            values.searchBy === "developer" ? values.developerName || "" : ""
+          }`}
+          // depending on each search catagory, we transform values to be posted to the back end.
           required
           onChange={handleChange}
         />

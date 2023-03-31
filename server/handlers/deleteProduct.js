@@ -35,7 +35,7 @@ const deleteProduct = async (req, res) => {
       message: ` The product with id: ${id} was successfully deleted`,
     });
   } catch (error) {
-    console.log("Add product error:", error);
+    console.log("Delete product error:", error);
     return res.status(500).json({
       status: 500,
       message: ` Sorry, the product with id: ${id} was NOT successfully deleted for some reason`,

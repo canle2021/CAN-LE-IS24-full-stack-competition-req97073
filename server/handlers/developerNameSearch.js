@@ -2,18 +2,18 @@
 const { getProductsData } = require("../helpers/helpers.js");
 
 /**********************************************************/
-/*   post: find Scrum Master Name
+/*   post: search by developer Name
 /**********************************************************/
 
-const scrumMasterNameSearch = async (req, res) => {
+const developerNameSearch = async (req, res) => {
   const body = req.body;
   console.log("body", body);
   // supposed the posting method wil have a req.body with this format:
   //{
-  // "scrumMasterName": "AAA"
+  // "developerName": "AAA"
   // }
 
-  if (!body.scrumMasterName) {
+  if (!body.developerName) {
     return res.status(400).json({
       status: 400,
       data: {},
@@ -27,36 +27,36 @@ const scrumMasterNameSearch = async (req, res) => {
     // convert {} data to an array
     let resultArray = [];
     arrayOfProductsData.forEach((product) => {
-      if (
-        product.scrumMasterName
-          .toLowerCase()
-          .includes(body.scrumMasterName.toLowerCase())
-      ) {
-        resultArray.push(product);
-      }
+      product.developers.forEach((developer) => {
+        if (
+          developer.toLowerCase().includes(body.developerName.toLowerCase())
+        ) {
+          resultArray.push(product);
+        }
+      });
     });
     // search base on lower case.
     if (resultArray.length < 1) {
       return res.status(400).json({
         status: 400,
         data: {},
-        message: `Sorry. Could not find a list of product(s) with scurm master: ${body.scrumMasterName}`,
+        message: `Sorry. Could not find a list of product(s) with developer: ${body.developerName}`,
       });
     }
     return res.status(200).json({
       status: 200,
       data: resultArray,
-      message: ` The list of product(s) with scurm master: ${body.scrumMasterName} was successfully found`,
+      message: ` The list of product(s) with developer: ${body.developerName} was successfully found`,
     });
   } catch (error) {
-    console.log("Search by scrum master:", error);
+    console.log("Search developer:", error);
     return res.status(500).json({
       status: 500,
-      message: ` Sorry, can not find the list of product(s) with scurm master: ${body.scrumMasterName} for some reason`,
+      message: ` Sorry, can not find the list of product(s) with developer: ${body.developerName} for some reason`,
     });
   }
 };
 
 module.exports = {
-  scrumMasterNameSearch,
+  developerNameSearch,
 };

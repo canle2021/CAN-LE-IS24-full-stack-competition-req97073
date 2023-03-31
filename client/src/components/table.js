@@ -6,7 +6,7 @@ import { AppContext } from "./context/context";
 import SearchBar from "./searchBar";
 const Table = () => {
   // const [productsData, setProductsData] = useState([]);
-  const { productsData, setProductsData, startSearch, searchWithScrumMaster } =
+  const { productsData, setProductsData, startSearch, searchResultArray } =
     useContext(AppContext);
   const [loading, setLoading] = useState(true);
   const columnNamesList = [
@@ -60,7 +60,7 @@ const Table = () => {
             <p>
               Total number of products:{" "}
               {
-                (startSearch === false ? productsData : searchWithScrumMaster)
+                (startSearch === false ? productsData : searchResultArray)
                   .length
               }
             </p>
@@ -75,32 +75,31 @@ const Table = () => {
                 ))}
               </tr>
               {/* depending on seach scrum master or not, we render list of search found or the whole products list */}
-              {(startSearch === false
-                ? productsData
-                : searchWithScrumMaster
-              ).map((product, index) => (
-                // map method will render each product
-                <tr key={index}>
-                  <td>{product.productId}</td>
-                  <td>{product.productName}</td>
-                  <td>{product.scrumMasterName}</td>
-                  <td>{product.productOwnerName}</td>
-                  <td>
-                    <ol>
-                      {product.developers.map((developer, index) => (
-                        // map method will render each developer's name
-                        <li key={index}>{developer}</li>
-                      ))}
-                    </ol>
-                  </td>
-                  <td>{product.startDate}</td>
-                  <td>
-                    {product.methodology}{" "}
-                    <Button buttonName="edit" product={product} />
-                    <Button buttonName="delete" product={product} />
-                  </td>
-                </tr>
-              ))}
+              {(startSearch === false ? productsData : searchResultArray).map(
+                (product, index) => (
+                  // map method will render each product
+                  <tr key={index}>
+                    <td>{product.productId}</td>
+                    <td>{product.productName}</td>
+                    <td>{product.scrumMasterName}</td>
+                    <td>{product.productOwnerName}</td>
+                    <td>
+                      <ol>
+                        {product.developers.map((developer, index) => (
+                          // map method will render each developer's name
+                          <li key={index}>{developer}</li>
+                        ))}
+                      </ol>
+                    </td>
+                    <td>{product.startDate}</td>
+                    <td>
+                      {product.methodology}{" "}
+                      <Button buttonName="edit" product={product} />
+                      <Button buttonName="delete" product={product} />
+                    </td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </div>

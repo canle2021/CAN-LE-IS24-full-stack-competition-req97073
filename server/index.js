@@ -11,6 +11,7 @@ const { createProduct } = require("./handlers/createProduct");
 const { updateProduct } = require("./handlers/editProduct");
 const { deleteProduct } = require("./handlers/deleteProduct");
 const { scrumMasterNameSearch } = require("./handlers/scrumMasterNameSearch");
+const { developerNameSearch } = require("./handlers/developerNameSearch");
 // import APIs here
 
 const PORT = 8001;
@@ -48,6 +49,7 @@ app.post(`/api/create-product`, createProduct);
 app.put(`/api/update-product`, updateProduct);
 app.delete(`/api/delete-product/:id`, deleteProduct);
 app.post(`/api/search-scrum-master`, scrumMasterNameSearch);
+app.post(`/api/search-developer`, developerNameSearch);
 
 // RESTFUL endpoints
 app.get("*", (req, res) => {

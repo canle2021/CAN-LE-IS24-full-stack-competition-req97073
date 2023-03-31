@@ -48,7 +48,11 @@ const InformationForm = ({
         name="developer1"
         required
         onChange={handleChange}
-        defaultValue={product !== undefined ? product.developers[0] : undefined}
+        defaultValue={
+          product !== undefined && product.developers[0]
+            ? product.developers[0]
+            : undefined
+        }
       />
       <input
         placeholder="Developer 2"
@@ -67,7 +71,7 @@ const InformationForm = ({
         name="developer3"
         onChange={handleChange}
         defaultValue={
-          product !== undefined && product.developers[3]
+          product !== undefined && product.developers[2]
             ? product.developers[2]
             : undefined
         }

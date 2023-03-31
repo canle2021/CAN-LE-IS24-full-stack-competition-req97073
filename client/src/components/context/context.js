@@ -4,7 +4,7 @@ import React, { useState, createContext } from "react";
 export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const [productsData, setProductsData] = useState([]);
-  const [searchWithScrumMaster, setSearchWithScrumMaster] = useState([]);
+  const [searchResultArray, setSearchResultArray] = useState([]);
   const [startSearch, setStartSearch] = useState(false);
   const fetchDataAgain = () => {
     fetch(`/api/get-all-products`)
@@ -35,8 +35,8 @@ export const AppProvider = ({ children }) => {
         productsData,
         setProductsData,
         fetchDataAgain,
-        searchWithScrumMaster,
-        setSearchWithScrumMaster,
+        searchResultArray,
+        setSearchResultArray,
         startSearch,
         setStartSearch,
       }}
