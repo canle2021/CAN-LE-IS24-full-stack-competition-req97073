@@ -49,7 +49,6 @@ export const AppProvider = ({ children }) => {
       });
 
       const converToJson = await posting.json();
-      console.log("converToJson", converToJson);
       if (converToJson.status === 200) {
         setSearchResultArray(converToJson.data);
         // assign found products list with the result array

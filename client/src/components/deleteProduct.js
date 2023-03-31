@@ -23,8 +23,10 @@ const DeleteProduct = ({ product, closeModal }) => {
         );
         fetchDataAgain();
         // get products data again
-        fetchSearchDataAgain();
-        // incase you want to delete product while searching
+        if (startSearch === true) {
+          fetchSearchDataAgain();
+          // incase you want to delete product while searching
+        }
       } else {
         alert(
           `* DELETE PRODUCT ERROR ALERT * Sorry! For some reasons, you can not delete the product ${product.productName} at this time.`

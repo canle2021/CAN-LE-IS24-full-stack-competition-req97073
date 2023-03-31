@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import { AppContext } from "./context/context";
 import InformationForm from "./form";
 const PostNewProduct = ({ buttonName }) => {
-  const { fetchDataAgain, fetchSearchDataAgain } = useContext(AppContext);
+  const { fetchDataAgain, fetchSearchDataAgain, startSearch } =
+    useContext(AppContext);
   const [values, setValues] = useState({});
   let developersArray = [];
   const handleChange = (event) => {
@@ -64,8 +65,10 @@ const PostNewProduct = ({ buttonName }) => {
         );
         fetchDataAgain();
         // get products data again
-        fetchSearchDataAgain();
-        // incase you want to add product while searching
+        if (startSearch === true) {
+          fetchSearchDataAgain();
+          // incase you want to add product while searching
+        }
       } else {
         alert(
           `* ADD NEW PRODUCT ERROR ALERT * Sorry! For some reasons, you can not add product ${objectToBePosted.productName} at this time.`
