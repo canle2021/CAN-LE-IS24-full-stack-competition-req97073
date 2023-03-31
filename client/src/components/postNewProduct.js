@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "./context/context";
 import InformationForm from "./form";
-const PostNewProduct = ({ buttonName }) => {
+const PostNewProduct = ({ buttonName, closeModal }) => {
   const { fetchDataAgain, fetchSearchDataAgain, startSearch } =
     useContext(AppContext);
   const [values, setValues] = useState({});
@@ -80,6 +80,7 @@ const PostNewProduct = ({ buttonName }) => {
     } catch (err) {
       console.log(err);
     }
+    closeModal();
   };
 
   return (

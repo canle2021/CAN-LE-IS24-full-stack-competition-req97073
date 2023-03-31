@@ -34,10 +34,14 @@ const Button = ({ buttonName, product }) => {
         {buttonName === "edit" ? <h2>Edit product</h2> : null}
         {buttonName === "delete" ? <h2>Delete product action</h2> : null}
         {buttonName === "Add product" ? (
-          <PostNewProduct buttonName={buttonName} />
+          <PostNewProduct buttonName={buttonName} closeModal={closeModal} />
         ) : null}
         {buttonName === "edit" ? (
-          <EditProduct buttonName={buttonName} product={product} />
+          <EditProduct
+            buttonName={buttonName}
+            product={product}
+            closeModal={closeModal}
+          />
         ) : null}
         {buttonName === "delete" ? (
           <DeleteProduct
