@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import "../styles/form.css";
+import "../styles/searchBar.css";
 import { AppContext } from "./context/context";
 const SearchBar = () => {
   const [values, setValues] = useState({});
@@ -56,6 +56,7 @@ const SearchBar = () => {
   };
   const endSearchHandler = () => {
     setStartSearch(false);
+    setValues({});
   };
   return (
     <div>
@@ -89,15 +90,16 @@ const SearchBar = () => {
           required
           onChange={handleChange}
         />
-
-        <input
-          id="submitButton"
-          type="submit"
-          value="Search"
-          name="confirmButton"
-        ></input>
+        <div id="buttonsDiv">
+          <input
+            id="submitButton"
+            type="submit"
+            value="Search"
+            name="confirmButton"
+          ></input>
+          <button onClick={endSearchHandler}>End search!</button>
+        </div>
       </form>
-      <button onClick={endSearchHandler}>End search!</button>
     </div>
   );
 };
