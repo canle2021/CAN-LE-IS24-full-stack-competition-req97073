@@ -2,7 +2,7 @@
 const { saveProductData, getProductsData } = require("../helpers/helpers.js");
 
 /**********************************************************/
-/*   put: update new product
+/*   put: update product
 /**********************************************************/
 
 const updateProduct = async (req, res) => {
@@ -21,6 +21,7 @@ const updateProduct = async (req, res) => {
   //   "Grenville Hoffner"
   // ],
   // "scrumMasterName": "Baudoin Dombrell",
+  // "startDate": "2023-01-19",
   // "methodology": "agile"
   // }
 
@@ -74,7 +75,7 @@ const updateProduct = async (req, res) => {
       message: ` The product with id: ${body.productId} was successfully updated`,
     });
   } catch (error) {
-    console.log("Add product error:", error);
+    console.log("Edit product error:", error);
     return res.status(500).json({
       status: 500,
       message: ` Sorry, the new product was NOT successfully updated for some reason`,

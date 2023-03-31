@@ -1,9 +1,11 @@
 import React from "react";
-import "../pageStyle/header.css";
+import "../styles/header.css";
+import Button from "../components/button";
 const Header = () => {
   return (
     <div className="main">
-      <p className="headerTitle">Products management tool.</p>
+      <p className="headerTitle">Products tracking</p>
+      <Button buttonName="Add product"></Button>
     </div>
   );
 };

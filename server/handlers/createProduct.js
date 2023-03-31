@@ -3,7 +3,7 @@ const { v4: uuidv4 } = require("uuid");
 const { saveProductData, getProductsData } = require("../helpers/helpers.js");
 
 /**********************************************************/
-/*   post :create new product
+/*   post: create new product
 /**********************************************************/
 
 const createProduct = async (req, res) => {

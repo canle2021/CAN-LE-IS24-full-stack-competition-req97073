@@ -10,9 +10,11 @@ const { getAllProductsData } = require("./handlers/getProducts");
 const { createProduct } = require("./handlers/createProduct");
 const { updateProduct } = require("./handlers/editProduct");
 const { deleteProduct } = require("./handlers/deleteProduct");
+const { scrumMasterNameSearch } = require("./handlers/scrumMasterNameSearch");
+const { developerNameSearch } = require("./handlers/developerNameSearch");
 // import APIs here
 
-const PORT = 3000;
+const PORT = 8001;
 
 const app = express();
 // .use() will add a middleware to app()
@@ -46,6 +48,8 @@ app.get(`/api/get-all-products`, getAllProductsData);
 app.post(`/api/create-product`, createProduct);
 app.put(`/api/update-product`, updateProduct);
 app.delete(`/api/delete-product/:id`, deleteProduct);
+app.post(`/api/search-scrum-master`, scrumMasterNameSearch);
+app.post(`/api/search-developer`, developerNameSearch);
 
 // RESTFUL endpoints
 app.get("*", (req, res) => {
@@ -56,4 +60,4 @@ app.get("*", (req, res) => {
 });
 // any api called outside this "/" will be a 404 error api
 app.listen(PORT, () => console.info(`LISTENING ON PORT ${PORT}`));
-// make sure this backend is running on the port of 8000.
+// make sure this backend is running on the port.

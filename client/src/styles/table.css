@@ -1,0 +1,44 @@
+
+#products {
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-collapse: collapse;
+  }
+  
+  #products tr:nth-child(even){background-color: #f4f1f1;}
+  
+  #products tr:hover {background-color: cadetblue; 
+color: white;
+transition: 0.5s ease-in-out;}
+
+  #products td, #products th {
+    border: 1.5px solid #ddd;
+    padding: 4px;
+  }
+
+  #products th {
+    text-align: left;
+    background-color:cadetblue;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #products li {
+    padding: 3px;
+  }
+  #tableTopLine{ 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5em;
+    margin: 0.1%;
+    align-items: center;
+}
+  #products div{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+}
+#products button{
+margin-top: 10px;
+}
