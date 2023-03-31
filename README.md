@@ -45,13 +45,13 @@ So, all the APIs will be http://localhost:8001/api/
 
 ## Some images about my app
 
-![yarn start](./screenpics/generalLook.png)
-![yarn start](./screenpics/addProductModal.png)
-![yarn start](./screenpics/editModal.png)
-![yarn start](./screenpics/deleteModal.png)
-![yarn start](./screenpics/searchBy.png)
-![yarn start](./screenpics/searchByScrumMaster.png)
-![yarn start](./screenpics/searchByDeveloper.png)
-![yarn start](./screenpics/searchByDeveloper.png)
-![yarn start](./screenpics/EditWhileSearch.png)
-![yarn start](./screenpics/DeleteWhileSearch.png)
+![](./instructions/screenpics/generalLook.png)
+![](./instructions/screenpics/addProductModal.png)
+![](./instructions/screenpics/editModal.png)
+![](./instructions/screenpics/deleteModal.png)
+![](./instructions/screenpics/searchBy.png)
+![](./instructions/screenpics/searchByScrumMaster.png)
+![](./instructions/screenpics/searchByDeveloper.png)
+![](./instructions/screenpics/searchByDeveloper.png)
+![](./instructions/screenpics/EditWhileSearch.png)
+![](./instructions/screenpics/DeleteWhileSearch.png)
