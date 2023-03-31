@@ -25,11 +25,11 @@ So, all the APIs will be http://localhost:8001/api/
 8. Set up:
 
 - After clone my repo, from main branch, redirect to client and server as picture:
-  ![cdToFolder](./screenpics/cdToFolder.png)
+  ![cdToFolder](./instructions/screenpics/cdToFolder.png)
 - use: "yarn install" for both to install all dependencies. I recommend using yarn for no extra node_modules created or any more files. You can use "npm install" instead of yarn, but yarn is for the best performance.
-  ![dependencies install](./screenpics/installDependencies.png)
+  ![dependencies install](./instructions/screenpics/installDependencies.png)
 - use: "yarn start" for both client and server for starting the project, and you can see the result as image:
-  ![yarn start](./screenpics/yarnStart.png)
+  ![yarn start](./instructions/screenpics/yarnStart.png)
 
 ## What I finished:
 
