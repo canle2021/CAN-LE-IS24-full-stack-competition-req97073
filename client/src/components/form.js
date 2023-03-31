@@ -104,7 +104,7 @@ const InformationForm = ({
       {buttonName !== "edit" ? (
         <div>
           {" "}
-          <small>Start date:</small>
+          <p>Start date:</p>
           <input
             type="date"
             name="startDate"
@@ -113,7 +113,7 @@ const InformationForm = ({
           />
         </div>
       ) : null}
-
+      {/* edit modal does not have Start date input */}
       <select
         name="methodology"
         required
